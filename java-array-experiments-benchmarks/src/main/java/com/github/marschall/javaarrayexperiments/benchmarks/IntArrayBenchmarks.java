@@ -44,6 +44,18 @@ public class IntArrayBenchmarks {
     return IntClass.loopRewritten(this.array);
   }
 
+  @Benchmark
+  public int[] rewritten2() {
+    Arrays.fill(this.array, 0);
+    return IntClass.loopRewritten2(this.array);
+  }
+
+  @Benchmark
+  public int[] rewritten3() {
+    Arrays.fill(this.array, 0);
+    return IntClass.loopRewritten3(this.array);
+  }
+
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
         .include(".*IntArrayBenchmarks.*")

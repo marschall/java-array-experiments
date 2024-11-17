@@ -31,19 +31,34 @@ public class IntClass {
     }
     return array;
   }
-  
+
   public static int[] loopRewritten2() {
     int[] array = new int[10_000];
     return loopRewritten2(array);
   }
-  
+
   public static int[] loopRewritten2(int[] array) {
     for (int i = 0; i < 10_000; i++) {
-      int x = 0;
+      int x = (i * 100_000);
+      int z = 0;
       for (int j = 0; j < 100_000; j++) {
-        x = x + j + i;
+        z += j;
       }
-      array[i] = x;
+      array[i] = x + z;
+    }
+    return array;
+  }
+  
+  public static int[] loopRewritten3() {
+    int[] array = new int[10_000];
+    return loopRewritten3(array);
+  }
+  
+  public static int[] loopRewritten3(int[] array) {
+    for (int i = 0; i < 10_000; i++) {
+      int x = (i * 100_000);
+      int z = (int) (99_999L * (100_000L / 2L));
+      array[i] = x + z;
     }
     return array;
   }

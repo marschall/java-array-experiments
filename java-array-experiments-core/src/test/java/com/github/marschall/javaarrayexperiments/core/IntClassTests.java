@@ -21,9 +21,26 @@ class IntClassTests {
 
   @Test
   void loopRewritten2() {
-    int[] loop = IntClass.loopRewritten();
-    int[] loopRewritten = IntClass.loopRewritten2();
-    assertArrayEquals(loop, loopRewritten);
+    int[] loopRewritten = IntClass.loopRewritten();
+    int[] loopRewritten2 = IntClass.loopRewritten2();
+    assertArrayEquals(loopRewritten, loopRewritten2);
+  }
+
+  @Test
+  void loopRewritten3() {
+    int[] loopRewritten2 = IntClass.loopRewritten2();
+    int[] loopRewritten3 = IntClass.loopRewritten3();
+    assertArrayEquals(loopRewritten2, loopRewritten3);
+  }
+  
+  @Test
+  void overflow() {
+    long z = 0;
+    for (int j = 0; j < 100_000; j++) {
+      z = Math.addExact(j, z);
+    }
+    assertEquals(4999950000L, z);
+    assertEquals(4999950000L, 99_999L * (100_000L / 2L));
   }
 
 }
