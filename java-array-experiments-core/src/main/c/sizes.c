@@ -2,8 +2,8 @@
 
 int main(void)
 {
-    printf("sizeof(int): %d\n", sizeof(int));
-    printf("sizeof(long): %d\n", sizeof(long));
+    printf("sizeof(int): %lu\n", sizeof(int));
+    printf("sizeof(long): %lu\n", sizeof(long));
 
     return 0;
 }
