@@ -1,0 +1,3 @@
+Benchmark                        Mode  Cnt     Score    Error   Units
+IntVectorBenchmarks.rewritten3  thrpt    5   363.195 ±  0.166  ops/ms
+IntVectorBenchmarks.vectorized  thrpt    5  1307.585 ± 11.217  ops/ms

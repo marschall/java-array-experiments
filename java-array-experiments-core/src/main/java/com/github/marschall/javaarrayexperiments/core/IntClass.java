@@ -8,7 +8,7 @@ public class IntClass {
   }
 
   public static int[] loop(int[] array) {
-    for (int i = 0; i < 10_000; i++) {
+    for (int i = 0; i < array.length; i++) {
       for (int j = 0; j < 100_000; j++) {
         array[i] = array[i] + j + i;
       }
@@ -39,7 +39,7 @@ public class IntClass {
 
   public static int[] loopRewritten2(int[] array) {
     for (int i = 0; i < array.length; i++) {
-      int x = (i * 100_000);
+      int x = i * 100_000;
       int z = 0;
       for (int j = 0; j < 100_000; j++) {
         z += j;
@@ -48,12 +48,12 @@ public class IntClass {
     }
     return array;
   }
-  
+
   public static int[] loopRewritten3() {
     int[] array = new int[10_000];
     return loopRewritten3(array);
   }
-  
+
   public static int[] loopRewritten3(int[] array) {
     for (int i = 0; i < array.length; i++) {
       int x = i * 100_000;

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class IntVectorClassTests {
 
   @Test
-  void loopRewritten() {
+  void loop() {
     int[] loop = IntClass.loop();
     int[] vectorLoop = IntVectorClass.loop();
     assertArrayEquals(loop, vectorLoop);

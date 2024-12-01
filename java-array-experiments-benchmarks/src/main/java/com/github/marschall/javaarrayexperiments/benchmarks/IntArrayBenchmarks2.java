@@ -15,12 +15,12 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import com.github.marschall.javaarrayexperiments.core.IntClass;
+import com.github.marschall.javaarrayexperiments.core.IntClass2;
 
 @BenchmarkMode(Mode.SampleTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class IntArrayBenchmarks {
+public class IntArrayBenchmarks2 {
 
   private static final int ARRAY_SIZE = 10_000;
 
@@ -33,32 +33,22 @@ public class IntArrayBenchmarks {
 
   @Benchmark
   public int[] original() {
-    return IntClass.loop(this.array);
+    return IntClass2.loop2(40, 3615, this.array);
   }
-
-  @Benchmark
-  public int[] rewritten() {
-    return IntClass.loopRewritten(this.array);
-  }
-
+  
   @Benchmark
   public int[] rewritten2() {
-    return IntClass.loopRewritten2(this.array);
-  }
-
-  @Benchmark
-  public int[] rewritten3() {
-    return IntClass.loopRewritten3(this.array);
+    return IntClass2.loop2Rewritten(40, 3615, this.array);
   }
 
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
-        .include(".*IntArrayBenchmarks.*")
+        .include(".*IntArrayBenchmarks2.*")
         .forks(1)
         .warmupIterations(3)
         .measurementIterations(5)
         .resultFormat(ResultFormatType.TEXT)
-        .result("int-array-result.txt")
+        .result("int-array2-result.txt")
         .build();
     new Runner(options).run();
   }
